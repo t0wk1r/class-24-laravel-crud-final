@@ -6,3 +6,5 @@
     <input type="text" name="pprise"><br>
     <input type="submit" >
 </form>
+
+<button><a href="{{url('/info')}}">All Data</a></button>

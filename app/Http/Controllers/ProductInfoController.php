@@ -54,7 +54,8 @@ class ProductInfoController extends Controller
      */
     public function show(ProductInfo $productInfo)
     {
-        //
+        $show['productInfo'] = $productInfo;
+        return view('product.info.show', $show);
     }
 
     /**
@@ -65,7 +66,8 @@ class ProductInfoController extends Controller
      */
     public function edit(ProductInfo $productInfo)
     {
-        //
+        $show['productInfo'] = $productInfo;
+        return view('product.info.edit', $show);
     }
 
     /**
@@ -77,7 +79,11 @@ class ProductInfoController extends Controller
      */
     public function update(Request $request, ProductInfo $productInfo)
     {
-        //
+        $info['productname'] = $request->pname;
+        $info['description'] = $request->pdes;
+        $info['price'] = $request->pprise;
+        $productInfo->update($info);
+        return redirect()->route('product_infos.index');
     }
 
     /**
