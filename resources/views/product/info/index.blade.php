@@ -31,7 +31,13 @@
     <!-- <td>{{$data['price']}}</td> -->
     <td>
         <a href="{{route('product_infos.show', $data->id)}}">Show</a> ||
-        <a href="{{route('product_infos.edit', $data->id)}}">Edit</a>
+        <a href="{{route('product_infos.edit', $data->id)}}">Edit</a> ||
+        <form style="display: inline-block;" action="{{route('product_infos.destroy', $data->id)}}" method="post">
+          @csrf
+          @method('delete')
+          <button onclick="return confirm('Are You Sure To Delete This Data')">Delete</button> 
+        </form>
+       
     </td>
     </tr>
     @endforeach

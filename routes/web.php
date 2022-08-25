@@ -18,6 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::view('/create', 'product.info.create');
 
 Route::resource('product_infos', ProductInfoController::class);

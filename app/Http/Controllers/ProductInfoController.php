@@ -14,9 +14,12 @@ class ProductInfoController extends Controller
      */
     public function index()
     {
-        $allData = ProductInfo::all();
+        $allData = ProductInfo::query()
+            ->orderByDesc('id', 'desc')
+            ->get();
         return view('product.info.index',compact('allData'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -94,6 +97,8 @@ class ProductInfoController extends Controller
      */
     public function destroy(ProductInfo $productInfo)
     {
-        //
+        $productInfo->delete();
+        return redirect()->route('product_infos.index');
+
     }
 }

@@ -13,4 +13,6 @@ class ProductInfo extends Model
         'description',
         'price',
     ];
+
+    
 }
